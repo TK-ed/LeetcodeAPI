@@ -23,18 +23,18 @@ app.get("/:username", async (req, res) => {
   try {
     const LEETCODE_API_ENDPOINT = "https://leetcode.com/graphql";
     const DAILY_CODING_CHALLENGE_QUERY = `
-                {    
-                    allQuestionsCount { difficulty count }
-                        matchedUser(username: "${req.params.username}") {
-                                    username
-                                    contributions { points }
-                                    profile { reputation ranking }
-                                    submitStats  {
-                                    acSubmissionNum { difficulty count submissions } 
+                    {    
+                        allQuestionsCount { difficulty count }
+                            matchedUser(username: "${req.params.username}") {
+                                        username
+                                        contributions { points }
+                                        profile { reputation ranking }
+                                        submitStats  {
+                                        acSubmissionNum { difficulty count submissions } 
+                            }
                         }
                     }
-                }
-                `;
+                    `;
 
     const init = {
       method: "POST",
